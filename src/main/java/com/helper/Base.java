@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -105,6 +106,11 @@ public class Base {
 		ele.clear();
 		ele.sendKeys(text);
 
+	}
+	public void validateText(By locator, String expectedText) {
+       String actualText=  waitForExpectedElement(locator).getText();		
+		Assert.assertEquals(expectedText, actualText);
+		
 	}
 
 	public void selectValueFromText(WebElement ele, String value) {
